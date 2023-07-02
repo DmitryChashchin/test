@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create a new task</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_label(form.task, 'Task') }}
+    {{ form_widget(form.task) }}
+    {% if form_errors(form.task) %}
+        <div>
+            {{ form_widget(form.disable_lol_rule) }}
+            {{ form_label(form.disable_lol_rule, 'Disable "lol" rule') }}
+        </div>
+    {% endif %}
+
+    {{ form_label(form.dueDate, 'Due Date') }}
+    {{ form_widget(form.dueDate) }}
+
+    <button type="submit">Create</button>
+    {{ form_end(form) }}
+{% endblock %}
